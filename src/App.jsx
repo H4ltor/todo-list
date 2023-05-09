@@ -1,16 +1,23 @@
 
 import './App.css';
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Remove} from "./redux/AddTodo";
-import AddTodo from "./Components/TodosList/AddTodo";
+import AddTodo from "./Components/AddTodo/AddTodo";
 import {AiOutlinePlus} from 'react-icons/ai'
 import {MdDelete} from 'react-icons/md'
+import './tailwind.css';
+import Todo from "./Components/TodosList/Todo";
+import axios from "axios";
+
+
 
 function App() {
   const[addTodoModal,setAddTodoModal]=useState(false);
   const todos = useSelector((state)=>state.addTodo)
   const dispatch = useDispatch()
+
+
 
   const removeHandle=(idx)=>{
     dispatch(Remove(idx))
@@ -33,6 +40,7 @@ function App() {
 
           <div className='p-5 text-black'>
             <ul className='space-y-4'>
+              <Todo/>
               {todos && todos.map((todo,idx)=>{
                 return(
                     <div key={idx} className='bg-gray-100 flex justify-between'>
