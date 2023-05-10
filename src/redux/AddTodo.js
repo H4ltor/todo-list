@@ -11,10 +11,14 @@ export const AddTodoReducer = createSlice({
         },
         Remove:(state,action)=>{
             return state.filter((addTodo,idx)=> idx !== action.payload)
+        },
+        Modify:(state,action)=>{
+            const { idx, text } = action.payload;
+            state[idx] = text;
         }
     }
 })
 
-export const {Add,Remove}= AddTodoReducer.actions
+export const {Add,Remove, Modify}= AddTodoReducer.actions
 
 export default AddTodoReducer.reducer

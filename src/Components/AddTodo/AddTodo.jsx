@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 //react icons
 import {AiOutlineCloseCircle} from 'react-icons/ai'
 import {IoAddCircleOutline} from 'react-icons/io5'
-
 //redux
 import { useDispatch } from 'react-redux'
 import { Add } from '../../redux/AddTodo'
